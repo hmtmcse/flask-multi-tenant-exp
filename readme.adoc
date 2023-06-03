@@ -14,3 +14,34 @@ python setup.py develop
 
 python app.py
 ```
+
+== List all Tenant
+```
+http://127.0.0.1:5000
+```
+
+== Initialize Tenant
+```
+http://127.0.0.1:5000/init-tenant
+```
+
+
+== Insert data to Tenant
+```
+Default database init
+http://127.0.0.1:5000/insert
+
+db1 database init
+http://127.0.0.1:5000/insert?tkey=db1
+```
+
+
+== Read data to Tenant
+```
+Default database read
+http://127.0.0.1:5000/select
+
+
+db1 database read
+http://127.0.0.1:5000/select?tkey=db1
+```
