@@ -1,0 +1,16 @@
+
+
+== Creating virtual environment with directory venv
+```
+python -m venv venv
+
+# For windows development (cmd)
+venv\Scripts\activate
+
+# Unix or other development
+source venv/bin/activate
+
+python setup.py develop
+
+python app.py
+```
