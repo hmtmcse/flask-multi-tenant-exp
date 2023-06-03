@@ -9,7 +9,7 @@ env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = ["Flask"]
+    dependency = ["Flask", "Flask-SQLAlchemy"]
 
     if env and env == "dev":
         return dependency
