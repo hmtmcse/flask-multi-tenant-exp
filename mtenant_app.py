@@ -1,6 +1,5 @@
 import random
 from flask import Flask, request, g
-
 from mtenant.mtenant_sqlalchemy import MTenantSQLAlchemy, MTUtil
 
 app = Flask(__name__)

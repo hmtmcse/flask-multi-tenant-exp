@@ -1,6 +1,8 @@
 == Flask Multi Tenant (SaaS)
 
-== Creating virtual environment with directory venv
+*base-db.sqlite* is the default database, db1.sqlite, db2.sqlite, db3.sqlite are the dynamic tenant.
+
+== Setup environment
 ```
 python -m venv venv
 
@@ -12,7 +14,7 @@ source venv/bin/activate
 
 python setup.py develop
 
-python app.py
+python mtenant_app.py
 ```
 
 == List all Tenant

@@ -62,6 +62,14 @@ class MTenantSQLAlchemy(SQLAlchemy):
                     tenant_list.append(key)
         return tenant_list
 
+    def init_db(self, bind_key):
+        self.create_all(bind_key=bind_key)
+
+    def init_tables(self, bind_key):
+        if bind_key in self.metadatas and None in self.metadatas and self.metadatas[None].tables:
+            for key, table in self.metadatas[None].tables.items():
+                self.metadatas[bind_key].tables._insert_item(key, table)
+
     def register_tenant(self, app, key: str, db_url: str):
         if not key or not db_url or key in self.engines:
             return False
@@ -77,5 +85,7 @@ class MTenantSQLAlchemy(SQLAlchemy):
         engine = self._make_engine(key, options, app)
         if self._app_engines and app in self._app_engines and key not in self._app_engines[app]:
             self._app_engines[app][key] = engine
+            self.init_tables(key)
+            self.init_db(key)
             return True
         return False
